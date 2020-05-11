@@ -6,10 +6,10 @@ public class Rocket : MonoBehaviour
 {
     Rigidbody rigidBody;
     [SerializeField]
-    private float turnSpeed = 2.0f;
-    [SerializeField]
-    private float thrustPower = 10.0f;
+    private float turnSpeed = 5.0f;
     AudioSource audioSource;
+    [SerializeField]
+    private float maintTrust = 100f;
 
 
     // Start is called before the first frame update
@@ -22,15 +22,35 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessInput();
+        Thrust();
+        Rotate();
     }
 
-    private void ProcessInput()
+    private void OnCollisionEnter(Collision collision)
     {
-        if(Input.GetKey(KeyCode.Space))
+        switch (collision.gameObject.tag)
         {
-            rigidBody.AddRelativeForce(Vector3.up * thrustPower);
-            if (audioSource.isPlaying == false)
+            case "Friendly":
+                print("ok");
+                break;
+            case "Fuel":
+                print("Fuel up");
+                    break;
+            default:
+                print("Dead");
+                break;
+               
+             
+        }
+    }
+
+
+    private void Thrust()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rigidBody.AddRelativeForce(Vector3.up * maintTrust);
+            if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
@@ -38,17 +58,25 @@ public class Rocket : MonoBehaviour
             {
                 audioSource.Stop();
             }
-        }
-
-        if(Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
-            print("Rotating Left");
-        }
-        else if(Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(-Vector3.forward * turnSpeed * Time.deltaTime);
-            print("Rotating Right");
+          
         }
     }
+    private void Rotate()
+    {
+        rigidBody.freezeRotation = true;//take manual control of rotation
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(-Vector3.forward * turnSpeed * Time.deltaTime);
+
+        }
+
+        rigidBody.freezeRotation = false; // resume physics control
+    }
 }
+
+
