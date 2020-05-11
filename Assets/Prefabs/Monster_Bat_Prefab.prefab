@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnSpeed: 50
-  maintTrust: 10
+  maintThrust: 1000
+  levelLoadDelay: 2
   movementSound: {fileID: 8300000, guid: 297330d3cc11eb84086f167d4ed6f7a6, type: 3}
   deathSound: {fileID: 8300000, guid: 1c1b9f1f9cfdc5f43bdf17672f97ca9c, type: 3}
   successSound: {fileID: 8300000, guid: 54d31ed31cf1a3d4b877d1c745277fc1, type: 3}
