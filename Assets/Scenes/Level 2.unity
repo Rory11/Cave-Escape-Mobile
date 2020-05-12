@@ -1813,6 +1813,7 @@ Transform:
   - {fileID: 540498020}
   - {fileID: 428390405}
   - {fileID: 1931582473}
+  - {fileID: 1884600419}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2930,12 +2931,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884600415}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10.1, z: 10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.6, y: 6.200001, z: 10}
   m_LocalScale: {x: 100, y: 20, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1191736510}
+  m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1903712251
 PrefabInstance:
@@ -3484,6 +3485,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1376829198466906482, guid: 5bdc563442f1d3649a25dc229944835f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 43.98
+      objectReference: {fileID: 0}
     - target: {fileID: 4270414092377373198, guid: 5bdc563442f1d3649a25dc229944835f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3541,7 +3547,7 @@ PrefabInstance:
     - target: {fileID: 393293550679366391, guid: d8bae12c388e3984b962435ba07b9d80,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 393293550679366391, guid: d8bae12c388e3984b962435ba07b9d80,
         type: 3}
@@ -3684,7 +3690,7 @@ PrefabInstance:
     - target: {fileID: 8092296316750042441, guid: 678d704ad59aea943b57bd63e98e9299,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.4
+      value: -35.78
       objectReference: {fileID: 0}
     - target: {fileID: 8092296316750042441, guid: 678d704ad59aea943b57bd63e98e9299,
         type: 3}
@@ -3730,6 +3736,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092296316750042446, guid: 678d704ad59aea943b57bd63e98e9299,
+        type: 3}
+      propertyPath: field of view
+      value: 44
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 678d704ad59aea943b57bd63e98e9299, type: 3}
