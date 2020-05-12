@@ -11,9 +11,9 @@ public class Oscillator : MonoBehaviour
     [SerializeField]
     private float period = 2.0f;
 
-    private Animator animator;
 
     float movementFactor; // 0 for not moved, 1 for fully moved
+
 
     Vector3 startingPos;
 
@@ -21,7 +21,6 @@ public class Oscillator : MonoBehaviour
     void Start()
     {
         startingPos = transform.position;
-        animator = GetComponent<Animator>();
             
     }
 
@@ -42,6 +41,5 @@ public class Oscillator : MonoBehaviour
         Vector3 offset = movementVector * movementFactor;
 
         transform.position = startingPos + offset;
-        animator.Play("Idle");
     }
 }

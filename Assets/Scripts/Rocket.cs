@@ -60,7 +60,7 @@ public class Rocket : MonoBehaviour
 
     private void RespondToDebugKeys()
     {
-        if(Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             LoadNextLevel();
         }
@@ -72,7 +72,7 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isTransitioning || collisionsDisabled)
+        if (isTransitioning || collisionsDisabled)
         {
             return;
         }
@@ -98,7 +98,7 @@ public class Rocket : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(successSound);
         successParticles.Play();
-        Invoke("LoadNextLevel", levelLoadDelay); 
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     private void StartDeathSequence()
@@ -114,7 +114,7 @@ public class Rocket : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        if(nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0; //restart game at level 1
         }
@@ -133,11 +133,14 @@ public class Rocket : MonoBehaviour
             ApplyThrust();
             PlayMovementAudio();
         }
+
         else
         {
             StopMovementAudio();
         }
     }
+
+       
 
     private void StopMovementAudio()
     {
@@ -157,11 +160,6 @@ public class Rocket : MonoBehaviour
         {
             movementParticles.Play();
             audioSource.PlayOneShot(movementSound);
-        }
-        else
-        {
-            movementParticles.Stop();
-            audioSource.Stop();
         }
     }
 

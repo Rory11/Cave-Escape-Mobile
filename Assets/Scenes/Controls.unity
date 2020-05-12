@@ -1495,9 +1495,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Lost deep in an uknown\ncave,  you must carefully fly\nyour way out level
-    by level, \ncarefully avoiding rocks and\nthe dangerous bat eating \nspiders
-    that stand in your\nway.\nDo you have what it take to \nescape this cave? "
+  m_Text: "Lost deep in an unknown\ncave,  you must  fly your way \nout level by
+    level, carefully\navoiding rocks and the \ndangerous bat eating spiders  \nthat
+    stand in your way.\nDo you have what it take to \nescape this cave? "
 --- !u!222 &1744680025
 CanvasRenderer:
   m_ObjectHideFlags: 0
