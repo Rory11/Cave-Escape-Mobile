@@ -37,6 +37,7 @@ public class Rocket : MonoBehaviour
     private Quaternion startRotation;
     [SerializeField]
     private SphereCollider playerHit;
+
     
 
 
@@ -53,6 +54,7 @@ public class Rocket : MonoBehaviour
         startPosition = transform.position;
         startRotation = transform.rotation;
         playerHit = GetComponent<SphereCollider>();
+        UIManager.LifeCounter = 3;
     }
 
     // Update is called once per frame
@@ -116,27 +118,35 @@ public class Rocket : MonoBehaviour
 
     private void StartDeathSequence()
     {
+        isTransitioning = true;
         playerHit.enabled = false;
         audioSource.Stop();
         audioSource.PlayOneShot(deathSound);
         deathParticles.Play();
         if (lives >= 1)
         {
+            UIManager.LifeCounter -= 1;
             Invoke("LifeLost", levelLoadDelay);
         }
         else
         {
-            isTransitioning = true;
+            UIManager.LifeCounter = 0;
             Invoke("LoadFirstLevel", levelLoadDelay);
         }
     }
 
     private void LifeLost()
     {
-        transform.rotation = startRotation;
-        transform.position = startPosition;
+        ResetPosition();
         deathParticles.Stop();
         playerHit.enabled = true;
+        isTransitioning = false;
+    }
+
+    private void ResetPosition()
+    {
+        transform.rotation = startRotation;
+        transform.position = startPosition;
     }
 
     private void LoadNextLevel()
@@ -176,7 +186,6 @@ public class Rocket : MonoBehaviour
         }
     }
 
-       
 
     private void StopMovementAudio()
     {

@@ -117,12 +117,14 @@ MonoBehaviour:
   turnSpeed: 50
   maintThrust: 1000
   levelLoadDelay: 2
+  lives: 3
   movementSound: {fileID: 8300000, guid: 330093275360cef4e80ad0408cf10c7e, type: 3}
   deathSound: {fileID: 8300000, guid: 1c1b9f1f9cfdc5f43bdf17672f97ca9c, type: 3}
   successSound: {fileID: 8300000, guid: 03ca7be889dc81048a1c9c913d22c8e3, type: 3}
   movementParticles: {fileID: 8251444735856034196}
   deathParticles: {fileID: 4757069632598876975}
   successParticles: {fileID: 7417184860675105298}
+  playerHit: {fileID: 6737267988664838548}
 --- !u!135 &6737267988664838548
 SphereCollider:
   m_ObjectHideFlags: 0
