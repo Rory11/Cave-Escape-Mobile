@@ -13,6 +13,8 @@ public class Rocket : MonoBehaviour
     private float maintThrust = 100f;
     [SerializeField]
     private float levelLoadDelay = 2.0f;
+    [SerializeField]
+    private int lives = 3;
 
     bool isTransitioning = false;
 
@@ -31,6 +33,13 @@ public class Rocket : MonoBehaviour
     [SerializeField]
     ParticleSystem successParticles;
 
+    private Vector3 startPosition;
+    private Quaternion startRotation;
+    [SerializeField]
+    private SphereCollider playerHit;
+    
+
+
     //debug var
     bool collisionsDisabled = false;
 
@@ -41,6 +50,9 @@ public class Rocket : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+        playerHit = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -85,6 +97,7 @@ public class Rocket : MonoBehaviour
                 StartSuccessSequence();
                 break;
             default:
+                lives--;
                 StartDeathSequence();
                 break;
 
@@ -103,22 +116,45 @@ public class Rocket : MonoBehaviour
 
     private void StartDeathSequence()
     {
-        isTransitioning = true;
+        playerHit.enabled = false;
         audioSource.Stop();
         audioSource.PlayOneShot(deathSound);
         deathParticles.Play();
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        if (lives >= 1)
+        {
+            Invoke("LifeLost", levelLoadDelay);
+        }
+        else
+        {
+            isTransitioning = true;
+            Invoke("LoadFirstLevel", levelLoadDelay);
+        }
+    }
+
+    private void LifeLost()
+    {
+        transform.rotation = startRotation;
+        transform.position = startPosition;
+        deathParticles.Stop();
+        playerHit.enabled = true;
     }
 
     private void LoadNextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
+
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             nextSceneIndex = 0; //restart game at level 1
         }
         SceneManager.LoadScene(nextSceneIndex); // allow for more than 2 levels
+    }
+
+    private void LoadCurrentLevel()
+    {
+    int currentScene = SceneManager.GetActiveScene().buildIndex;
+    SceneManager.LoadScene(currentScene);
     }
 
     private void LoadFirstLevel()
