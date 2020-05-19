@@ -12,8 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Controls.unity
     guid: e2b9efa168c580b4ebc18d90b86b0067
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
+    path: Assets/Scenes/Tutorial 1.unity
+    guid: 318864697dcfb4546b4caa83e0dbc5ab
+  - enabled: 1
+    path: Assets/Scenes/Tutorial 2.unity
+    guid: df244085297a788428ea4d96836b3800
+  - enabled: 1
+    path: Assets/Scenes/Tutorial 3.unity
     guid: 6fbfcebd7161225498ba54af5e9bb756
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 76caf55fdefb80646b781af5ba5f893b
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: f0f4d40cf54674144bee3a7e9cec8ee3
@@ -25,11 +34,17 @@ EditorBuildSettings:
     guid: 6d364fe1ce93ae04a835f24790be10c6
   - enabled: 1
     path: Assets/Scenes/Level 5.unity
-    guid: e0df6fb55cd9a714dbf280a874b92bd5
+    guid: 66e1c678b167b5349b3669b3aac5872c
   - enabled: 1
     path: Assets/Scenes/Level 6.unity
     guid: a39617d2dabfdb148a8bd1441195f6db
   - enabled: 1
     path: Assets/Scenes/Level 7.unity
-    guid: 66e1c678b167b5349b3669b3aac5872c
+    guid: e0df6fb55cd9a714dbf280a874b92bd5
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: 23dcc243e69ec1643b8a7bcabc4d21e1
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: 3a106131b5b240145bad062a037e0346
   m_configObjects: {}

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: cf5fe9364b273854dbf2bc436fe279f5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - movementSound: {instanceID: 0}
+  - deathSound: {instanceID: 0}
+  - successSound: {fileID: 8300000, guid: 54d31ed31cf1a3d4b877d1c745277fc1, type: 3}
+  - movementParticles: {instanceID: 0}
+  - deathParticles: {instanceID: 0}
+  - successParticles: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

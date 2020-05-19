@@ -44,6 +44,9 @@ GameObject:
   - component: {fileID: 395127598418973857}
   - component: {fileID: 6737267988664838548}
   - component: {fileID: 782706487}
+  - component: {fileID: 2019802790}
+  - component: {fileID: 8273041773633970688}
+  - component: {fileID: 6066160088506235372}
   m_Layer: 0
   m_Name: Monster_Bat_Prefab
   m_TagString: Player
@@ -114,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c272456429dbb9c408cbad6eea4d0b35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSpeed: 50
-  maintThrust: 1000
+  turnSpeed: 30
+  maintThrust: 800
   levelLoadDelay: 2
   lives: 3
   movementSound: {fileID: 8300000, guid: 330093275360cef4e80ad0408cf10c7e, type: 3}
@@ -136,8 +139,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.47065437
-  m_Center: {x: -1.07735e-14, y: 0.46, z: 0.05065441}
+  m_Radius: 0.41275138
+  m_Center: {x: -1.07735e-14, y: 0.40209705, z: 0.05065441}
 --- !u!82 &782706487
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,6 +237,129 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2019802790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395754179127533583}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5fe9364b273854dbf2bc436fe279f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 100
+  maintThrust: 1000
+  levelLoadDelay: 2
+  lives: 3
+  movementSound: {fileID: 8300000, guid: 330093275360cef4e80ad0408cf10c7e, type: 3}
+  deathSound: {fileID: 8300000, guid: 1c1b9f1f9cfdc5f43bdf17672f97ca9c, type: 3}
+  successSound: {fileID: 8300000, guid: 03ca7be889dc81048a1c9c913d22c8e3, type: 3}
+  movementParticles: {fileID: 8251444735856034196}
+  deathParticles: {fileID: 4757069632598876975}
+  successParticles: {fileID: 7417184860675105298}
+  playerHit: {fileID: 6737267988664838548}
+--- !u!114 &8273041773633970688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395754179127533583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4516f3c57b3fa1d4b804c26cfe5dcd5f,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8273041773633970688}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 183d7470-e273-488c-ad4a-ebd28e427b27
+    m_ActionName: Player/Fly[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc3a18f5-77e9-46c6-bb24-b40590d8ce30
+    m_ActionName: Player/Rotate[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &6066160088506235372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395754179127533583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4516f3c57b3fa1d4b804c26cfe5dcd5f,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6066160088506235372}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 183d7470-e273-488c-ad4a-ebd28e427b27
+    m_ActionName: Player/Fly[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bc3a18f5-77e9-46c6-bb24-b40590d8ce30
+    m_ActionName: Player/Rotate[/Keyboard/a,/Keyboard/d,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &396078820619013925
 GameObject:
   m_ObjectHideFlags: 0

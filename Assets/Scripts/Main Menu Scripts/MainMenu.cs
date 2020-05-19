@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public void LoadGame()
     {
-        SceneManager.LoadScene(2); // level 1
+        SceneManager.LoadScene(2); // Tutorial Level
     }
 }

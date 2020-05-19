@@ -2,9 +2,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class Rocket : MonoBehaviour
 {
+
+
     Rigidbody rigidBody;
 
     [SerializeField]
@@ -18,32 +21,29 @@ public class Rocket : MonoBehaviour
 
     bool isTransitioning = false;
 
-    AudioSource audioSource;
+    AudioSource audioSource = null;
     [SerializeField]
-    AudioClip movementSound;
+    AudioClip movementSound = null;
     [SerializeField]
-    AudioClip deathSound;
+    AudioClip deathSound = null;
     [SerializeField]
-    AudioClip successSound;
+    AudioClip successSound = null;
 
     [SerializeField]
-    ParticleSystem movementParticles;
+    ParticleSystem movementParticles = null;
     [SerializeField]
-    ParticleSystem deathParticles;
+    ParticleSystem deathParticles = null;
     [SerializeField]
-    ParticleSystem successParticles;
+    ParticleSystem successParticles = null;
 
     private Vector3 startPosition;
     private Quaternion startRotation;
     [SerializeField]
     private SphereCollider playerHit;
 
-    
-
 
     //debug var
     bool collisionsDisabled = false;
-
 
 
     // Start is called before the first frame update
@@ -55,6 +55,7 @@ public class Rocket : MonoBehaviour
         startRotation = transform.rotation;
         playerHit = GetComponent<SphereCollider>();
         UIManager.LifeCounter = 3;
+        GameObject.Find("UIManager");
     }
 
     // Update is called once per frame
@@ -74,11 +75,13 @@ public class Rocket : MonoBehaviour
 
     private void RespondToDebugKeys()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        //if (Input.GetKeyDown(KeyCode.L))
+        if(Keyboard.current.lKey.isPressed)
         {
             LoadNextLevel();
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        //else if (Input.GetKeyDown(KeyCode.C))
+        else if (Keyboard.current.cKey.isPressed)
         {
             collisionsDisabled = !collisionsDisabled;
         }
@@ -171,32 +174,11 @@ public class Rocket : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-    private void RespondToThrustInput()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            ApplyThrust();
-            PlayMovementAudio();
-        }
-
-        else
-        {
-            StopMovementAudio();
-        }
-    }
-
-
+    
     private void StopMovementAudio()
     {
         audioSource.Stop();
         movementParticles.Stop();
-    }
-
-
-    private void ApplyThrust()
-    {
-        rigidBody.AddRelativeForce(Vector3.up * maintThrust * Time.deltaTime);
     }
 
     private void PlayMovementAudio()
@@ -208,21 +190,64 @@ public class Rocket : MonoBehaviour
         }
     }
 
+
+    //MOVEMENT
+
+ 
+
+    private void RespondToThrustInput()
+    {
+        // if (Input.GetKey(KeyCode.Space))
+        if(Keyboard.current.spaceKey.isPressed)
+        {
+            ApplyThrust();
+        }
+
+        else
+        {
+            StopThrust();
+        }
+    }
+
+    public void StopThrust()
+    {
+        StopMovementAudio();
+    }
+
     private void RespondToRotateInput()
     {
+
         rigidBody.angularVelocity = Vector3.zero;  //remove rotation due to physics
-
-        if (Input.GetKey(KeyCode.A))
+     
+        //if (Input.GetKey(KeyCode.A))
+        if (Keyboard.current.aKey.isPressed)
         {
-            transform.Rotate(-Vector3.forward * turnSpeed * Time.deltaTime);
+            RotateLeft();
         }
-        else if (Input.GetKey(KeyCode.D))
+        //else if (Input.GetKey(KeyCode.D))
+        if (Keyboard.current.dKey.isPressed)
         {
-            transform.Rotate(Vector3.forward * turnSpeed * Time.deltaTime);
+            RotateRight();
         }
 
-        
     }
- }  
+
+    public void RotateRight()
+    {
+        transform.Rotate(Vector3.right * turnSpeed * Time.deltaTime);
+    }
+
+    public void RotateLeft()
+    {
+        transform.Rotate(-Vector3.right * turnSpeed * Time.deltaTime);
+    }
+
+    public void ApplyThrust()
+    {
+        rigidBody.AddRelativeForce(Vector3.up * maintThrust * Time.deltaTime);
+        PlayMovementAudio();
+    }
+
+}  
 
 
